@@ -1,6 +1,8 @@
 package examenrecuperacio1516;
 
-public abstract class MachineComponent {
+import java.util.Observable;
+
+public abstract class MachineComponent extends Observable {
     protected boolean broken = false;
 
     public void setBroken() {
