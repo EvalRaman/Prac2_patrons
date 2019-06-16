@@ -2,6 +2,7 @@ package examenrecuperacio1516;
 
 public class Machine extends MachineComponent {
 
+    @Override
     public void setBroken() {
         if(!isBroken()) {
             broken = true;
@@ -9,7 +10,7 @@ public class Machine extends MachineComponent {
             notifyObservers();
         }
     }
-
+    @Override
     public void repair() {
         if(isBroken()) {
             broken = false;
@@ -17,7 +18,7 @@ public class Machine extends MachineComponent {
             notifyObservers();
         }
     }
-
+    @Override
     public boolean isBroken() {
         return broken;
     }

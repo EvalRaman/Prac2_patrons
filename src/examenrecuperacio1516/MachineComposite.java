@@ -13,15 +13,20 @@ public class MachineComposite extends MachineComponent implements Observer {
         components.add(mc);
         mc.addObserver(this);
     }
-
+    @Override
     public void setBroken() {
         if (!isBroken()) {
-            broken = true;
-            setChanged();
-            notifyObservers();
+            for (MachineComponent machine :components){
+                if (machine.isBroken()){
+                    brokenComponents.add(machine);
+                    broken = true;
+                    setChanged();
+                    notifyObservers();
+                }
+            }
         }
     }
-
+    @Override
     public void repair() {
         if (isBroken()) {
             for (MachineComponent component : brokenComponents) {
@@ -33,7 +38,7 @@ public class MachineComposite extends MachineComponent implements Observer {
             notifyObservers();
         }
     }
-
+    @Override
     public boolean isBroken() {
         return broken;
     }
