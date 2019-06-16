@@ -7,7 +7,7 @@ public class Machine extends MachineComponent {
         if(!isBroken()) {
             broken = true;
             setChanged();
-            notifyObservers();
+            notifyObservers(this);
         }
     }
     @Override
@@ -15,7 +15,7 @@ public class Machine extends MachineComponent {
         if(isBroken()) {
             broken = false;
             setChanged();
-            notifyObservers();
+            notifyObservers(this);
         }
     }
     @Override

@@ -10,8 +10,10 @@ public class MachineComposite extends MachineComponent implements Observer {
 
 
     public void addComponent(MachineComponent mc) {
-        components.add(mc);
-        mc.addObserver(this);
+        if(!components.contains(mc) || brokenComponents.contains(mc)) {
+            components.add(mc);
+            mc.addObserver(this);
+        }
     }
     @Override
     public void setBroken() {
