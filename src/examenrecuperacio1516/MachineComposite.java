@@ -31,7 +31,7 @@ public class MachineComposite extends MachineComponent implements Observer {
     @Override
     public void repair() {
         if (isBroken()) {
-            for (MachineComponent component : brokenComponents) {
+                    for (MachineComponent component : brokenComponents) {
                 component.repair();
                 brokenComponents.remove(component);
             }
@@ -57,7 +57,7 @@ public class MachineComposite extends MachineComponent implements Observer {
                 notifyObservers();
             }
 
-        } else if (!mc.isBroken()) {
+        } else {
             brokenComponents.remove(mc);
             if (brokenComponents.isEmpty() && broken) {
                 broken = false;
